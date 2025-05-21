@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Aşk Sorusu</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f8f8f8;
+    }
+
+    #container {
+      text-align: center;
+    }
+
+    button {
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    #result {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('happy_couple.jpg') no-repeat center center / cover;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+      color: white;
+    }
+
+    #result h1 {
+      font-size: 40px;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h2>Aşkım beni affettin mi?</h2>
+    <button id="yesBtn">Evet</button>
+    <button id="noBtn">Hayır</button>
+  </div>
+
+  <div id="result">
+    <h1>Biliyorduuumm aşkıımm seni çokk seviyoruummm ❤️</h1>
+  </div>
+
+  <script>
+    let noClickCount = 0;
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+    const container = document.getElementById('container');
+    const result = document.getElementById('result');
+
+    const randomMessages = [
+      "nee hayırmı",
+      "şaka yapmaaa",
+      "hayıır diyemezsiin"
+    ];
+
+    noBtn.addEventListener('click', () => {
+      noClickCount++;
+      switch (noClickCount) {
+        case 1:
+          noBtn.textContent = "Hayırmıı";
+          break;
+        case 2:
+          noBtn.textContent = "Hayıırmııı";
+          break;
+        case 3:
+          noBtn.textContent = "Ciddenn hayırmııı şakamıı";
+          break;
+        default:
+          const randomText = randomMessages[Math.floor(Math.random() * randomMessages.length)];
+          noBtn.textContent = randomText;
+      }
+    });
+
+    yesBtn.addEventListener('click', () => {
+      container.style.display = 'none';
+      result.style.display = 'flex';
+    });
+  </script>
+</body>
+</html>

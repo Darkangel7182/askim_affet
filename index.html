@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Aşkım Affettin mi?</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-image: url('sad_face.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            color: white;
+        }
+        h1 {
+            margin-top: 50px;
+            font-size: 36px;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+        #buttons {
+            margin-top: 30px;
+        }
+        button {
+            padding: 15px 25px;
+            font-size: 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #yesBtn {
+            background-color: #28a745;
+            color: white;
+        }
+        #noBtn {
+            background-color: #dc3545;
+            color: white;
+            position: absolute;
+        }
+        #happyImage {
+            display: none;
+            margin-top: 20px;
+            max-width: 90%;
+            border-radius: 10px;
+        }
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Aşkım affettin mi beni?</h1>
+    <div id="buttons">
+        <button id="yesBtn">Evet aşkıımmm</button>
+        <button id="noBtn">Hayır</button>
+    </div>
+    <img id="happyImage" src="happy_couple.jpg" alt="Birlikte Mutlu">
+    <audio autoplay loop>
+        <source src="die_with_a_smile.mp3" type="audio/mpeg">
+        Tarayıcınız ses öğesini desteklemiyor.
+    </audio>
+    <script>
+        const noBtn = document.getElementById("noBtn");
+        const yesBtn = document.getElementById("yesBtn");
+        const happyImage = document.getElementById("happyImage");
+
+        function moveButton() {
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            noBtn.style.left = `${x}px`;
+            noBtn.style.top = `${y}px`;
+        }
+
+        noBtn.addEventListener("mouseover", moveButton);
+        noBtn.addEventListener("click", moveButton);
+
+        yesBtn.addEventListener("click", () => {
+            happyImage.style.display = "block";
+        });
+    </script>
+</body>
+</html>
